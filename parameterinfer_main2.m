@@ -6,7 +6,8 @@ load 7_6_data.mat;
 C = data(318:446,1);
 C = table2array(C);
 C = C'; % C for concentration
-x = [0:0.5:64]; % x for tspan?
+% x = [0:0.5:64]; % x for tspan?
+x = [0:0.5:64]; 
 
 obs_t = x;
 obs_y1 = C;
@@ -26,8 +27,8 @@ p0 = [0.1, 385]; % replace with the previous results
 
 %%% post pross 
 p
-[t, Y] = ode45(@(t,Y)Spiky_p_2(t,p,Y),[0,T],Y0);
-figure(1)
+[t, Y] = ode45(@(t,Y)Spiky_p_2(t,p,Y), [0,T], 1);
+figure(1) 
 plot(obs_t,obs_y1,'r-');
 hold on 
 plot(t,Y,'r*');
